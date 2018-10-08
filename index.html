@@ -12,6 +12,88 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
-    </body>
-</html>
+      <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">RecipeShopper</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" href="#">
+            Find Recipe
+            </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            Favorite Recipes
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">
+            Find Ingredients
+          </a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- Navbar End  -->
+
+  <!-- Start of sign in card -->
+
+  <div class="card card-signin text-center col-sm-6 offset-sm-3" id="card-login">
+    <div class="card-body">
+      <h5 class="card-title text-center">Sign In</h5>
+      <form class="form-signin" id="login">
+        <div class="form-label-group">
+
+          <input type="email" name="credentials[email]" class="form-control" placeholder="Email address" required autofocus>
+
+
+          <label for="inputEmail">Email address</label>
+        </div>
+
+        <div class="form-label-group text-center">
+          <input type="password" name="credentials[password]" class="form-control" placeholder="Password" required>
+          <label for="inputPassword">Password</label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">login</button>
+        <a href="#" class="toSignup text-center">Create Account</a>
+        <p class="message hide">Try to log in again</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- End of card -->
+  <!-- Start of sign up card -->
+  <div class="card card-signin col-sm-6 offset-sm-3 hide text-center" id="card-signup">
+    <div class="card-body">
+      <h5 class="card-title text-center">Sign Up</h5>
+      <form class="form-signin" id="signup">
+        <div class="form-label-group">
+          <input type="email" name="credentials[email]" class="form-control" placeholder="Email address" required autofocus>
+          <label for="inputEmail">Email address</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="password" id="inputPassword" name="credentials[password]" class="form-control" placeholder="Password" required>
+          <label for="inputPassword">Password</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="password" id="inputPasswordConfirmation" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation" required>
+          <label for="inputPassword">Password Confirmation</label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Create Account</button>
+        <a href="#">Return to Login</a>
+      </form>
+    </div>
+  </div>
+  <!-- End of card -->
