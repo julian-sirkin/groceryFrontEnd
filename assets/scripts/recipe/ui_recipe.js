@@ -13,8 +13,18 @@ const searchEdanamFail = function () {
   alert('failed to get info, time to debug')
 }
 
+const saveRecipeSuccess = function () {
+  alert('Saved the recipe')
+}
+
+const saveRecipeFail = function () {
+  alert('did not get the recipes')
+}
+
 
 module.exports = {
   searchEdananmSuccess,
-  searchEdanamFail
+  searchEdanamFail,
+  saveRecipeSuccess,
+  saveRecipeFail
 }
