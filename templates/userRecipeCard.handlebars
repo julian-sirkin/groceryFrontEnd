@@ -1,0 +1,12 @@
+{{#each recipe as |recipe|}}
+<div class="card col-sm-4 text-center">
+  <div class="card-body">
+    <img class="mx-auto col-12" src="{{recipe.image}}" alt="">
+    <h5>{{recipe.label}}</h5>
+    <button type="button" name="{{recipe.userId}}" class="button saveRecipe">Remove Recipe</button>
+  </div>
+</div>
+
+
+
+{{/each}}

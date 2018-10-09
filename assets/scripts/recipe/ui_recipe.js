@@ -1,10 +1,11 @@
 'use strict'
 const recipeCard = require('../../../templates/recipeCard.handlebars')
-
+const userRecipeCard = require('../../../templates/userRecipeCard.handlebars')
 
 
 const searchEdananmSuccess = function (data) {
-  const addRecipeToHtml = recipeCard({ recipes: data.body})
+  console.log(data.body)
+  const addRecipeToHtml = recipeCard({recipes: data.body})
   $('#displayContainer').html(addRecipeToHtml)
 }
 
@@ -21,8 +22,9 @@ const saveRecipeFail = function () {
 }
 
 const getRecipesSuccess = function (data) {
-  console.log(data)
-  alert('I got the recipes')
+  console.log(data.body[0])
+  const addUserRecipeToHtml = userRecipeCard({recipe: data.body})
+  $('#displayContainer').html(addUserRecipeToHtml)
 }
 
 const getRecipesFail = function () {
