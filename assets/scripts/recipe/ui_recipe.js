@@ -4,7 +4,6 @@ const recipeCard = require('../../../templates/recipeCard.handlebars')
 
 
 const searchEdananmSuccess = function (data) {
-  console.log(data.body)
   const addRecipeToHtml = recipeCard({ recipes: data.body})
   $('#displayContainer').html(addRecipeToHtml)
 }
@@ -21,10 +20,20 @@ const saveRecipeFail = function () {
   alert('did not get the recipes')
 }
 
+const getRecipesSuccess = function (data) {
+  console.log(data)
+  alert('I got the recipes')
+}
+
+const getRecipesFail = function () {
+  alert('No recipes for you!')
+}
 
 module.exports = {
   searchEdananmSuccess,
   searchEdanamFail,
   saveRecipeSuccess,
-  saveRecipeFail
+  saveRecipeFail,
+  getRecipesSuccess,
+  getRecipesFail
 }

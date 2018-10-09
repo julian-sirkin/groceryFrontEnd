@@ -4,7 +4,6 @@ const store = require('../store.js')
 
 
 const searchEdanam = function (data) {
-  console.log(data, 'info going to api')
   return $.ajax({
     url: config.apiUrl + '/edaman',
     method: 'GET',
@@ -24,8 +23,19 @@ const saveRecipe = function (data) {
   })
 }
 
+const getRecipes = function () {
+  return $.ajax({
+    url: config.apiUrl + '/recipes',
+    method: 'GET',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
+
 
 module.exports = {
   searchEdanam,
-  saveRecipe
+  saveRecipe,
+  getRecipes
 }

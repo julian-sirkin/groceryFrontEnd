@@ -3,9 +3,6 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api_recipe.js')
 const ui = require('./ui_recipe.js')
 
-
-
-
 const onSearchEdanam = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -24,11 +21,16 @@ const onSaveRecipe = function (event) {
     .catch(ui.saveRecipeFail)
 }
 
-
+const onGetRecipes = function () {
+  api.getRecipes()
+    .then(ui.getRecipesSuccess)
+    .catch(ui.getRecipesFail)
+}
 
 const eventHandler = function () {
 $('#navbarSearch').on('submit', onSearchEdanam)
 $('#displayContainer').on('click', 'button.saveRecipe', onSaveRecipe)
+$('#getRecipes').on('click', onGetRecipes)
 }
 
 
