@@ -1,8 +1,12 @@
 'use strict'
+const recipeCard = require('../../../templates/recipeCard.handlebars')
+
+
 
 const searchEdananmSuccess = function (data) {
-  alert('got info back')
-  console.log(data)
+  console.log(data.body)
+  const addRecipeToHtml = recipeCard({ recipes: data.body})
+  $('#displayContainer').html(addRecipeToHtml)
 }
 
 const searchEdanamFail = function () {
