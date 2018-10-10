@@ -64,7 +64,11 @@ const onBuyIngredients = function () {
   ]
 }
   api.buyIngredients(data)
-    .then(ui.buyIngredientsSuccsess)
+    //.then(ui.buyIngredientsSuccsess)
+      .then(response => {
+        $('html').html(response.body)
+
+      })
     .catch(ui.buyIngredientsFail)
 }
 
