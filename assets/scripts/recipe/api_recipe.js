@@ -32,10 +32,21 @@ const getRecipes = function () {
     }
   })
 }
+const deleteRecipe = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiUrl + '/recipes/' + data,
+    method: 'DELETE',
+    headers: {
+      'Authorization': 'Token token=' + store.user.token
+    }
+  })
+}
 
 
 module.exports = {
   searchEdanam,
   saveRecipe,
-  getRecipes
+  getRecipes,
+  deleteRecipe
 }

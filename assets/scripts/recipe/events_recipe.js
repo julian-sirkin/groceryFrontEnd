@@ -27,10 +27,20 @@ const onGetRecipes = function () {
     .catch(ui.getRecipesFail)
 }
 
+const onDeleteRecipe = function (event) {
+  const data = event.target.name
+  console.log(data, 'this is the data')
+  api.deleteRecipe(data)
+    .then(ui.deleteRecipeSuccess)
+    .catch(ui.getRecipeFail)
+}
+
+
 const eventHandler = function () {
 $('#navbarSearch').on('submit', onSearchEdanam)
 $('#displayContainer').on('click', 'button.saveRecipe', onSaveRecipe)
 $('#getRecipes').on('click', onGetRecipes)
+$('#displayContainer').on('click', 'button.deleteRecipe', onDeleteRecipe)
 }
 
 

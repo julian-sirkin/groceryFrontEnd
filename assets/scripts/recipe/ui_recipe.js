@@ -31,11 +31,21 @@ const getRecipesFail = function () {
   alert('No recipes for you!')
 }
 
+const deleteRecipeSuccess = function () {
+  alert('removed recipe')
+}
+
+const deleteRecipeFail = function () {
+  alert('Did not remove recipe.....sad')
+}
+
 module.exports = {
   searchEdananmSuccess,
   searchEdanamFail,
   saveRecipeSuccess,
   saveRecipeFail,
   getRecipesSuccess,
-  getRecipesFail
+  getRecipesFail,
+  deleteRecipeSuccess,
+  deleteRecipeFail
 }
