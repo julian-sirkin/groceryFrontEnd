@@ -12,7 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark hidden" id="navBar">
     <a class="navbar-brand" href="#">RecipeShopper</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -60,15 +60,15 @@
           <label for="inputPassword">Password</label>
         </div>
         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">login</button>
-        <a href="#" class="toSignup text-center">Create Account</a>
-        <p class="message hide">Try to log in again</p>
+        <a href="#" class="toSignup text-center" id="toSignup">Create Account</a>
+        <p class="message hidden">Try to log in again</p>
       </form>
     </div>
   </div>
 
   <!-- End of card -->
   <!-- Start of sign up card -->
-  <div class="card col-sm-6 offset-sm-3 hide text-center" id="card-signup">
+  <div class="card col-sm-6 offset-sm-3 hide text-center hidden" id="card-signup">
     <div class="card-body">
       <h5 class="card-title text-center">Sign Up</h5>
       <form class="form-signin" id="signup">
@@ -88,7 +88,7 @@
         </div>
 
         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Create Account</button>
-        <a href="#">Return to Login</a>
+        <a id="toLogin" href="#">Return to Login</a>
       </form>
     </div>
   </div>

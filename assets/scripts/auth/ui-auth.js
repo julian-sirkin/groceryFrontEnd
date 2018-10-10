@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store.js')
+const pageView = require('../page_view/ui_page.js')
 
 const signUpFail = function () {
   clearInputFields()
@@ -8,6 +9,7 @@ const signUpFail = function () {
 const logInSuccess = function (data) {
   store.user = data.user
   clearInputFields()
+  pageView.loginScreen()
 }
 
 const logInFail = function () {
