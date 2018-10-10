@@ -4,6 +4,7 @@ const store = require('../store.js')
 
 
 const searchEdanam = function (data) {
+  console.log(data, 'data on search')
   return $.ajax({
     url: config.apiUrl + '/edaman',
     method: 'GET',
@@ -33,7 +34,6 @@ const getRecipes = function () {
   })
 }
 const deleteRecipe = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/recipes/' + data,
     method: 'DELETE',
@@ -43,10 +43,19 @@ const deleteRecipe = function (data) {
   })
 }
 
+const buyIngredients = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/amazonshopping',
+    method: 'POST',
+    dataType: 'json',
+    data
+  })
+}
 
 module.exports = {
   searchEdanam,
   saveRecipe,
   getRecipes,
-  deleteRecipe
+  deleteRecipe,
+  buyIngredients
 }

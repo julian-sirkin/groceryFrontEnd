@@ -35,12 +35,46 @@ const onDeleteRecipe = function (event) {
     .catch(ui.getRecipeFail)
 }
 
+const onBuyIngredients = function () {
+  const data = {
+  "ingredients": [
+    {
+      "name": "Oranges",
+      "quantityList": [
+        {
+          "unit": "COUNT",
+          "amount": 5
+        },
+        {
+          "unit": "KILOGRAMS",
+          "amount": 0.5
+        }
+      ]
+    },
+    {
+      "name": "Greek Yogurt",
+      "brand": "chobani",
+      "quantityList": [
+        {
+          "unit": "OUNCES",
+          "amount": 5
+        }
+      ]
+    }
+  ]
+}
+  api.buyIngredients(data)
+    .then(ui.buyIngredientsSuccsess)
+    .catch(ui.buyIngredientsFail)
+}
+
 
 const eventHandler = function () {
 $('#navbarSearch').on('submit', onSearchEdanam)
 $('#displayContainer').on('click', 'button.saveRecipe', onSaveRecipe)
 $('#getRecipes').on('click', onGetRecipes)
 $('#displayContainer').on('click', 'button.deleteRecipe', onDeleteRecipe)
+$('#buyIngredients').on('click', onBuyIngredients)
 }
 
 

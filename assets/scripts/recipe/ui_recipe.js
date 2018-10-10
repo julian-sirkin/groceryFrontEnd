@@ -39,6 +39,14 @@ const deleteRecipeFail = function () {
   alert('Did not remove recipe.....sad')
 }
 
+const buyIngredientsFail = function () {
+  alert('did not go to amazon.')
+}
+const buyIngredientsSuccsess = function (data) {
+  console.log(data)
+  alert('Went to amazon')
+}
+
 module.exports = {
   searchEdananmSuccess,
   searchEdanamFail,
@@ -47,5 +55,7 @@ module.exports = {
   getRecipesSuccess,
   getRecipesFail,
   deleteRecipeSuccess,
-  deleteRecipeFail
+  deleteRecipeFail,
+  buyIngredientsFail,
+  buyIngredientsSuccsess
 }
