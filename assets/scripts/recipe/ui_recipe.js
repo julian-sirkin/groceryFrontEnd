@@ -1,10 +1,9 @@
 'use strict'
 const recipeCard = require('../../../templates/recipeCard.handlebars')
 const userRecipeCard = require('../../../templates/userRecipeCard.handlebars')
-
+const uiAuth = require('../auth/ui-auth')
 
 const searchEdananmSuccess = function (data) {
-  console.log(data.body)
   const addRecipeToHtml = recipeCard({recipes: data.body})
   $('#displayContainer').html(addRecipeToHtml)
 }
@@ -22,13 +21,14 @@ const saveRecipeFail = function () {
 }
 
 const getRecipesSuccess = function (data) {
-  console.log(data.body[0])
   const addUserRecipeToHtml = userRecipeCard({recipe: data.body})
   $('#displayContainer').html(addUserRecipeToHtml)
+  uiAuth.clearInputFields()
 }
 
 const getRecipesFail = function () {
-  alert('No recipes for you!')
+  uiAuth.clearInputFields()
+  $('#displayContainer').html('<h4>Unable to get recipes, try again! </h4>')
 }
 
 const deleteRecipeSuccess = function () {

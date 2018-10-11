@@ -35,13 +35,14 @@ const changePasswordFail = function () {
 }
 
 const clearInputFields = function () {
-  $('#change-pw-form input[name="passwords[old]"]').val('')
-  $('#change-pw-form input[name="passwords[new]"]').val('')
+  $('#updatePassword input[name="passwords[old]"]').val('')
+  $('#updatePassword input[name="passwords[new]"]').val('')
   $('#signup input[name="credentials[email]').val('')
   $('#signup input[name="credentials[password]').val('')
   $('#signup input[name="credentials[password_confirmation]').val('')
   $('#login input[name="credentials[email]"]').val('')
   $('#login input[name="credentials[password]"]').val('')
+  $('#navbarSearch input').val('')
 }
 
 module.exports = {
