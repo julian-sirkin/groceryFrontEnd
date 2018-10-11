@@ -30,6 +30,7 @@ const onDeleteRecipe = function (event) {
   const data = event.target.name
   console.log(data, 'this is the data')
   api.deleteRecipe(data)
+    .then(onGetRecipes)
     .then(ui.deleteRecipeSuccess)
     .catch(ui.getRecipeFail)
 }

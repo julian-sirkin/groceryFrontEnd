@@ -14,8 +14,7 @@ const searchEdanamFail = function () {
 }
 
 const saveRecipeSuccess = function () {
-  alert('Saved the recipe')
-}
+$('#userMessages').html('<h4>Recipe Saved to List</h4>')}
 
 const saveRecipeFail = function () {
   $('displayContainer').html('<h3>Please try again</h3>')
@@ -29,23 +28,21 @@ const getRecipesSuccess = function (data) {
 
 const getRecipesFail = function () {
   pageUi.loginScreen()
-  $('#displayContainer').html('<h4>Unable to get recipes, try again! </h4>')
+  $('#userMessages').html('<h4>Unable to get recipes, try again! </h4>')
 }
 
 const deleteRecipeSuccess = function () {
-  alert('removed recipe')
+  $('#userMessages').html('<h4>The Recipe has been removed from your list</h4>')
 }
 
 const deleteRecipeFail = function () {
-  alert('Did not remove recipe.....sad')
+  $('#userMessages').html('<h4>Unable to remove recipe from the list recipes, try again! </h4>')
 }
 
 const buyIngredientsFail = function () {
-  alert('did not go to amazon.')
+  $('#userMessages').html('<h4>Unable to load Amazon</h4>')
 }
 const buyIngredientsSuccsess = function (data) {
-  console.log(data)
-  alert('Went to amazon')
 }
 
 module.exports = {

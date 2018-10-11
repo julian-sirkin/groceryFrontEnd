@@ -1,13 +1,13 @@
 'use strict'
 
 const blankScreen = function () {
-$('#navBar, #card-login, #card-signup, #userNav, #card-changePW').addClass('hidden')
-$('#displayContainer').html('')
+$('#navBar, #card-login, #card-signup, #userNav, #card-changePW, #userMessages').addClass('hidden')
+$('#displayContainer, #userMessages').html('')
 }
 
 const loginScreen = function () {
   blankScreen()
-  $('#navBar, #userNav').removeClass('hidden')
+  $('#navBar, #userNav, #userMessages').removeClass('hidden')
 }
 
   module.exports = {
