@@ -15,12 +15,15 @@ const toChangePW = function () {
   $('#card-changePW').removeClass('hidden')
 }
 
-
+const noChangePW = function () {
+  pageUi.loginScreen()
+}
 
 const eventHandler = function () {
 $('#toSignup').on('click', toSignup)
 $('#toLogin').on('click', toLogin)
 $('#toChangePW').on('click', toChangePW)
+$('#noChangePW').on('click', noChangePW)
 }
 
 module.exports = {

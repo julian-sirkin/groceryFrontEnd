@@ -1,15 +1,16 @@
 'use strict'
 const recipeCard = require('../../../templates/recipeCard.handlebars')
 const userRecipeCard = require('../../../templates/userRecipeCard.handlebars')
-const uiAuth = require('../auth/ui-auth')
+const pageUi = require('../page_view/ui_page')
 
 const searchEdananmSuccess = function (data) {
+  pageUi.loginScreen()
   const addRecipeToHtml = recipeCard({recipes: data.body})
   $('#displayContainer').html(addRecipeToHtml)
 }
 
 const searchEdanamFail = function () {
-  alert('failed to get info, time to debug')
+  $('displayContainer').html('<h3>Please try again</h3>')
 }
 
 const saveRecipeSuccess = function () {
@@ -17,17 +18,17 @@ const saveRecipeSuccess = function () {
 }
 
 const saveRecipeFail = function () {
-  alert('did not get the recipes')
+  $('displayContainer').html('<h3>Please try again</h3>')
 }
 
 const getRecipesSuccess = function (data) {
+  pageUi.loginScreen()
   const addUserRecipeToHtml = userRecipeCard({recipe: data.body})
   $('#displayContainer').html(addUserRecipeToHtml)
-  uiAuth.clearInputFields()
 }
 
 const getRecipesFail = function () {
-  uiAuth.clearInputFields()
+  pageUi.loginScreen()
   $('#displayContainer').html('<h4>Unable to get recipes, try again! </h4>')
 }
 

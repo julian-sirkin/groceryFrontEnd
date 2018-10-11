@@ -20,11 +20,6 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item ">
-          <a class="nav-link" href="#">
-            Find Recipe
-            </a>
-        </li>
         <li class="nav-item" id="getRecipes">
           <a class="nav-link"  href="#">
             Favorite Recipes
@@ -96,15 +91,15 @@
       <!-- Change Password Card -->
   <div class="card col-sm-6 offset-sm-3 hide text-center hidden" id="card-changePW">
     <div class="card-body">
-      <h5 class="card-title text-center">Sign Up</h5>
+      <h5 class="card-title text-center">Change Password</h5>
       <form class="form-signin" id="updatePassword">
         <div class="form-label-group">
-          <input type="password" name="password[old]" class="form-control" placeholder="Old Password" required autofocus>
+          <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password" required autofocus>
           <label for="inputEmail">Email address</label>
         </div>
 
         <div class="form-label-group">
-          <input type="password" name="password[new]" class="form-control" placeholder="New Password" required>
+          <input type="password" name="passwords[new]" class="form-control" placeholder="New Password" required>
           <label for="inputPassword">Password</label>
         </div>
         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Change Password</button>
@@ -113,7 +108,7 @@
     </div>
   </div>
   <!-- End of card -->
-  <div class="container col-12 bg-dark" id="displayContainer"></div>
+  <div class="container col-12 bg-dark d-flex flex-wrap" id="displayContainer"></div>
 
   <!-- Bottom Nav -->
     <nav class="navbar fixed-bottom hidden" id="userNav">
