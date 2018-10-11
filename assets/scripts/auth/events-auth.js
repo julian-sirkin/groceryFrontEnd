@@ -49,7 +49,7 @@ const onChangePassword = function (event) {
 const authEventHandler = function () {
   $('#signup').on('submit', onSignUp)
   $('#login').on('submit', onLogin)
-  $('#log-out').on('click', onLogOut)
+  $('#logout').on('click', onLogOut)
   $('#to-signout').on('click', onLogOut)
   $('#updatePassword').on('submit', onChangePassword)
 }

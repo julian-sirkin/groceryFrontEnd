@@ -18,8 +18,8 @@ const logInFail = function () {
 
 const logOutSuccess = function () {
   clearInputFields()
-  $('.duck-right').removeClass('hide')
-  $('.duck-left').removeClass('hide')
+  pageView.blankScreen()
+  $('#card-login').removeClass('hidden')
 }
 
 const logOutFail = function () {
