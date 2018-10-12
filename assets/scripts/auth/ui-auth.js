@@ -4,6 +4,7 @@ const pageView = require('../page_view/ui_page.js')
 
 const signUpFail = function () {
   clearInputFields()
+  $('#userMessages').html('<h4> Failed to sign up, please try again </h4>')
 }
 
 const logInSuccess = function (data) {
@@ -13,6 +14,7 @@ const logInSuccess = function (data) {
 }
 
 const logInFail = function () {
+  $('#userMessages').html('<h4> Failed to login, please try again </h4>')
   clearInputFields()
 }
 
@@ -27,10 +29,14 @@ const logOutFail = function () {
 }
 
 const changePasswordSuccess = function () {
+  $('#userMessages').html('<h4>Password has been changed </h4>')
+
   clearInputFields()
 }
 
 const changePasswordFail = function () {
+  $('#userMessages').html('<h4> Unable to change passwords, please try again </h4>')
+
   clearInputFields()
 }
 
