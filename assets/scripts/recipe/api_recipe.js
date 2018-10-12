@@ -4,7 +4,6 @@ const store = require('../store.js')
 
 
 const searchEdanam = function (data) {
-  console.log(data, 'data on search')
   return $.ajax({
     url: config.apiUrl + '/edaman',
     method: 'GET',
