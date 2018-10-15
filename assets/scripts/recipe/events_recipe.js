@@ -36,7 +36,7 @@ const onSaveRecipe = function (event) {
   } else {
     recipeAlreadySaved = false
   }
-  const recipeAlreadySaved = store.userRecipes.some(recipe => {
+   recipeAlreadySaved = store.userRecipes.some(recipe => {
     if (data.recipe.recipeId === recipe.uri) {
       return true
     } else {
