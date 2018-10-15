@@ -51,6 +51,10 @@ const buyIngredientsFail = function () {
 const buyIngredientsSuccsess = function (data) {
 }
 
+const alreadySaved = function () {
+  $('#userMessages').html('<h4>Already saved the recipe</h4>')
+}
+
 module.exports = {
   searchEdananmSuccess,
   searchEdanamFail,
@@ -61,5 +65,6 @@ module.exports = {
   deleteRecipeSuccess,
   deleteRecipeFail,
   buyIngredientsFail,
-  buyIngredientsSuccsess
+  buyIngredientsSuccsess,
+  alreadySaved
 }

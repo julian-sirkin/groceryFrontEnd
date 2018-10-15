@@ -5,6 +5,12 @@ const ui = require('./ui_recipe.js')
 const store = require('../store.js')
 
 
+const onGetRecipes = function () {
+  api.getRecipes()
+    .then(ui.getRecipesSuccess)
+    .catch(ui.getRecipesFail)
+}
+
 const onSearchEdanam = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -28,16 +34,11 @@ const onSaveRecipe = function (event) {
   if (!recipeAlreadySaved) {
     api.saveRecipe(data)
       .then(ui.saveRecipeSuccess)
+      .then(onGetRecipes)
       .catch(ui.saveRecipeFail)
   } else {
-    alert('Already Saved')
+    ui.alreadSaved()
   }
-}
-
-const onGetRecipes = function () {
-  api.getRecipes()
-    .then(ui.getRecipesSuccess)
-    .catch(ui.getRecipesFail)
 }
 
 const onDeleteRecipe = function (event) {
