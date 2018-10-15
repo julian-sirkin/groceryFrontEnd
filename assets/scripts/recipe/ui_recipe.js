@@ -27,7 +27,6 @@ const saveRecipeFail = function () {
 const getRecipesSuccess = function (data) {
   pageUi.loginScreen()
   store.userRecipes = data.body
-  console.log(data.body[0])
   const addUserRecipeToHtml = userRecipeCard({recipe: data.body})
   $('#displayContainer').html(addUserRecipeToHtml)
 }

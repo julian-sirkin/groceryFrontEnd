@@ -36,7 +36,7 @@ const onSaveRecipe = function (event) {
       .then(onGetRecipes)
       .catch(ui.saveRecipeFail)
   } else {
-    ui.alreadySaved()
+    $('#userMessages').html('<h4>Already saved the recipe</h4>')
   }
 }
 
