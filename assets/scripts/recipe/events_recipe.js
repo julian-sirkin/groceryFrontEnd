@@ -2,6 +2,8 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api_recipe.js')
 const ui = require('./ui_recipe.js')
+const store = require('../store.js')
+
 
 const onSearchEdanam = function (event) {
   event.preventDefault()
@@ -15,9 +17,21 @@ const onSaveRecipe = function (event) {
   const data = {recipe: {
     recipeId: event.target.name
   }}
-  api.saveRecipe(data)
-    .then(ui.saveRecipeSuccess)
-    .catch(ui.saveRecipeFail)
+  const recipeAlreadySaved = store.userRecipes.some(recipe => {
+    if (data.recipe.recipeId === recipe.uri) {
+      return true
+    } else {
+      return false
+    }
+  })
+  console.log(recipeAlreadySaved, 'Is the recipe already saved')
+  if (!recipeAlreadySaved) {
+    api.saveRecipe(data)
+      .then(ui.saveRecipeSuccess)
+      .catch(ui.saveRecipeFail)
+  } else {
+    alert('Already Saved')
+  }
 }
 
 const onGetRecipes = function () {
@@ -83,5 +97,6 @@ $('#buyIngredients').on('click', onBuyIngredients)
 
 
 module.exports = {
-eventHandler
+eventHandler,
+onGetRecipes
 }

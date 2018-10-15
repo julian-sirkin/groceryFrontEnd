@@ -2,6 +2,9 @@
 const recipeCard = require('../../../templates/recipeCard.handlebars')
 const userRecipeCard = require('../../../templates/userRecipeCard.handlebars')
 const pageUi = require('../page_view/ui_page')
+const store = require('../store.js')
+
+
 
 const searchEdananmSuccess = function (data) {
   pageUi.loginScreen()
@@ -14,7 +17,8 @@ const searchEdanamFail = function () {
 }
 
 const saveRecipeSuccess = function () {
-$('#userMessages').html('<h4>Recipe Saved to List</h4>')}
+$('#userMessages').html('<h4>Recipe Saved to List</h4>')
+}
 
 const saveRecipeFail = function () {
   $('displayContainer').html('<h3>Please try again</h3>')
@@ -22,6 +26,8 @@ const saveRecipeFail = function () {
 
 const getRecipesSuccess = function (data) {
   pageUi.loginScreen()
+  store.userRecipes = data.body
+  console.log(data.body[0])
   const addUserRecipeToHtml = userRecipeCard({recipe: data.body})
   $('#displayContainer').html(addUserRecipeToHtml)
 }

@@ -3,6 +3,8 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api-auth.js')
 const ui = require('./ui-auth.js')
 const store = require('../store.js')
+const recipeEvents = require('../recipe/events_recipe.js')
+
 
 // Event after sign up form is submitted
 const onSignUp = function (event) {
@@ -19,6 +21,7 @@ const signInAfterSignUp = function () {
   const credentials = store.credentials
   api.logIn(credentials)
     .then(ui.logInSuccess)
+    .then(recipeEvents.onGetRecipes)
     .catch(ui.logInFail)
 }
 // Event after sign in form is submitted
@@ -27,6 +30,7 @@ const onLogin = function (event) {
   const data = getFormFields(event.target)
   api.logIn(data)
     .then(ui.logInSuccess)
+    .then(recipeEvents.onGetRecipes)
     .catch(ui.logInFail)
 }
 // After logout button is clicked
