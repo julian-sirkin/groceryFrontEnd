@@ -25,8 +25,9 @@ const onSaveRecipe = function (event) {
   }}
   let recipeAlreadySaved
     // If there are saved recipes then run this function, otherwise default to false
-  if (store.userRecipes) {
-    recipeAlreadySaved = store.userRecipes.some(recipe => {
+  if (store.userRecipes !== undefined) {
+    const userRecipes = store.userRecipes
+    recipeAlreadySaved = userRecipes.some(recipe => {
       if (data.recipe.recipeId === recipe.uri) {
         return true
       } else {
