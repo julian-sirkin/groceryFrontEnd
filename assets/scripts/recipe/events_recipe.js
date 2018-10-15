@@ -30,21 +30,19 @@ const onSaveRecipe = function (event) {
       return false
     }
   })
-  console.log(recipeAlreadySaved, 'Is the recipe already saved')
   if (!recipeAlreadySaved) {
     api.saveRecipe(data)
       .then(ui.saveRecipeSuccess)
       .then(onGetRecipes)
       .catch(ui.saveRecipeFail)
   } else {
-    ui.alreadSaved()
+    ui.alreadySaved()
   }
 }
 
 const onDeleteRecipe = function (event) {
   const data = event.target.name
-  console.log(data, 'this is the data')
-  api.deleteRecipe(data)
+    api.deleteRecipe(data)
     .then(onGetRecipes)
     .then(ui.deleteRecipeSuccess)
     .catch(ui.getRecipeFail)
@@ -82,7 +80,6 @@ const onBuyIngredients = function () {
     //.then(ui.buyIngredientsSuccsess)
       .then(response => {
         $('html').html(response.body)
-
       })
     .catch(ui.buyIngredientsFail)
 }
