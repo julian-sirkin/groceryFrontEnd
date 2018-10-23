@@ -1,4 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
+body {
+  background: url(https://preview.ibb.co/fsmovq/kachapuri.jpg)no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 
 .hidden {
   display: none;
