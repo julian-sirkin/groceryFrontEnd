@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Grocery Shopper</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark hidden" id="navBar">
+    <a class="navbar-brand" href="#">RecipeFinder</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" id="getRecipes">
+          <a class="nav-link"  href="#">
+            Favorite Recipes
+          </a>
+        </li>
+        <li class="nav-item active" id="buyIngredients">
+          <a class="nav-link" href="#">
+            Find Ingredients
+          </a>
+        </li>
+        <li class="nav-item" id="logout">
+          <a href="#" class="nav-link">Logout</a>
+        </li>
+        <li class="nav-item" id="toChangePW">
+          <a href="#" class="nav-link">Change Password</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" id="navbarSearch">
+        <input class="form-control mr-sm-2" type="text" name="recipe[search]" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- Navbar End  -->
+
+  <!-- Start of sign in card -->
+
+  <div class="card text-center col-sm-6 offset-sm-3 mt-5" id="card-login">
+    <div class="card-body">
+      <h5 class="card-title text-center">Sign In</h5>
+      <form class="form-signin" id="login">
+        <div class="form-label-group">
+          <input type="email" name="credentials[email]" class="form-control" placeholder="Email address" required autofocus>
+          <label for="inputEmail">Email address</label>
+        </div>
+        <div class="form-label-group text-center">
+          <input type="password" name="credentials[password]" class="form-control" placeholder="Password" required>
+          <label for="inputPassword">Password</label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">login</button>
+        <a href="#" class="toSignup text-center" id="toSignup">Create Account</a>
+        <p class="message hidden">Try to log in again</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- End of card -->
+  <!-- Start of sign up card -->
+  <div class="card col-sm-6 offset-sm-3 hide text-center hidden mt-5" id="card-signup">
+    <div class="card-body">
+      <h5 class="card-title text-center">Sign Up</h5>
+      <form class="form-signin" id="signup">
+        <div class="form-label-group">
+          <input type="email" name="credentials[email]" class="form-control" placeholder="Email address" required autofocus>
+          <label for="inputEmail">Email address</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="password" id="inputPassword" name="credentials[password]" class="form-control" placeholder="Password" required>
+          <label for="inputPassword">Password</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="password" id="inputPasswordConfirmation" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation" required>
+          <label for="inputPassword">Password Confirmation</label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Create Account</button>
+        <a id="toLogin" href="#">Return to Login</a>
+      </form>
+    </div>
+  </div>
+  <!-- End of card -->
+      <!-- Change Password Card -->
+  <div class="card col-sm-6 offset-sm-3 hide text-center hidden mt-5" id="card-changePW">
+    <div class="card-body">
+      <h5 class="card-title text-center">Change Password</h5>
+      <form class="form-signin" id="updatePassword">
+        <div class="form-label-group">
+          <input type="password" name="passwords[old]" class="form-control" placeholder="Old Password" required autofocus>
+          <label for="inputEmail">Email address</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="password" name="passwords[new]" class="form-control" placeholder="New Password" required>
+          <label for="inputPassword">Password</label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Change Password</button>
+        <a id="noChangePW" href="#">Keep Password</a>
+      </form>
+    </div>
+  </div>
+  <!-- End of card -->
+  <div class="container text-center col-12" id="userMessages"></div>
+  <div class="container col-12 d-flex flex-wrap" id="displayContainer"></div>
+
+  <!-- Bottom Nav -->
+    <!-- <nav class="navbar fixed-bottom hidden" id="userNav">
+      <ul class="navbar-nav">
+      </ul>
+    </nav> -->
+  </body>
+</html>
