@@ -3,7 +3,6 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api_recipe.js')
 const ui = require('./ui_recipe.js')
 const store = require('../store.js')
-const ingredients = require('./ingredientInterperter.js')
 
 const onGetRecipes = function () {
   api.getRecipes()
@@ -110,6 +109,25 @@ console.log(recipes)
 ui.getRecipesSuccess(recipes)
 }
 
+const onSeeSearchRecipe = function (event) {
+  let selectedRecipe
+  // Find the proper recipe object
+  // Loop through the stored saved recipes to find a match
+  for (let i = 0; i < store.userRecipes.length; i++) {
+    if (store.searchRecipes[i].uri === event.target.name) {
+      selectedRecipe = store.userRecipes[i]
+    }
+  }
+  // Pass recipe object into ui function to generate html
+  ui.showOneSearchRecipe(selectedRecipe)
+}
+
+const onBackToSearchRecipes = function () {
+  const recipes = {}
+  recipes.body = store.searchRecipes
+  ui.getRecipesSuccess(recipes)
+}
+
 
 const eventHandler = function () {
 $('#navbarSearch').on('submit', onSearchEdanam)
@@ -119,6 +137,8 @@ $('#displayContainer').on('click', 'button.deleteRecipe', onDeleteRecipe)
 $('#buyIngredients').on('click', onBuyIngredients)
 $('#displayContainer').on('click', 'a.seeUserRecipe', onSeeUserRecipe)
 $('#displayContainer').on('click', 'a.backToUserRecipes', onBackToUserRecipes)
+$('#displayContainer').on('click', 'a.seeSearchRecipe', onSeeSearchRecipe)
+$('#displayContainer').on('click', 'a.backToSearchRecipes', onBackToSearchRecipes)
 }
 
 

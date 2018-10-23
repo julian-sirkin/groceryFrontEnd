@@ -3,14 +3,18 @@
 const recipeCard = require('../../../templates/recipeCard.handlebars')
 // Recipe cards created when getting all of the user's recipes
 const userRecipeCard = require('../../../templates/userRecipeCard.handlebars')
-// Displying more information for one recipe
-const userOneRecipeCard = require ('../../../templates/userOneRecipeCard.handlebars')
+// Displying more information for one recipe that belongs to user
+const userOneRecipeCard = require('../../../templates/userOneRecipeCard.handlebars')
+// Display information for one recipe that is searched, but does not belong to the user
+const addSearchRecipeToHtml = require('../../../templates/addSearchRecipeToHtml.handlebars')
+
 const pageUi = require('../page_view/ui_page')
 const store = require('../store.js')
 
 
 
 const searchEdananmSuccess = function (data) {
+  store.searchRecipes = data
   pageUi.loginScreen()
   const addRecipeToHtml = recipeCard({recipes: data.body})
   $('#displayContainer').html(addRecipeToHtml)
@@ -67,6 +71,12 @@ const showOneUserRecipe = function (data) {
   $('#displayContainer').html(addUserRecipeToHtml)
 }
 
+const showOneSearchRecipe = function (data) {
+  console.log(data.uri, 'data.uri')
+  const recipeCard = showOneSearchRecipe({recipe: data})
+  $('#displayContainer').html(recipeCard)
+}
+
 module.exports = {
   searchEdananmSuccess,
   searchEdanamFail,
@@ -79,5 +89,6 @@ module.exports = {
   buyIngredientsFail,
   buyIngredientsSuccsess,
   alreadySaved,
-  showOneUserRecipe
+  showOneUserRecipe,
+  showOneSearchRecipe
 }
