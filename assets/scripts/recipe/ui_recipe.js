@@ -14,7 +14,7 @@ const store = require('../store.js')
 
 
 const searchEdananmSuccess = function (data) {
-  store.searchRecipes = data
+  store.searchRecipes = data.body
   pageUi.loginScreen()
   const addRecipeToHtml = recipeCard({recipes: data.body})
   $('#displayContainer').html(addRecipeToHtml)
@@ -66,16 +66,16 @@ const alreadySaved = function () {
 
 const showOneUserRecipe = function (data) {
   console.log(data, 'data')
-  console.log(data.uri, 'data.uri')
   const addUserRecipeToHtml = userOneRecipeCard({recipe: data})
   $('#displayContainer').html(addUserRecipeToHtml)
 }
 
-const showOneSearchRecipe = function (data) {
-  console.log(data.uri, 'data.uri')
-  const recipeCard = showOneSearchRecipe({recipe: data})
-  $('#displayContainer').html(recipeCard)
+const showOneSearchRecipe = function (selectedRecipe) {
+  console.log(selectedRecipe, 'selectedRecipe')
+  const lookAtRecipe = addSearchRecipeToHtml({recipe: selectedRecipe})
+  $('#displayContainer').html(lookAtRecipe)
 }
+
 
 module.exports = {
   searchEdananmSuccess,

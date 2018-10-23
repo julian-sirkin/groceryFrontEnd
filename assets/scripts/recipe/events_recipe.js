@@ -111,13 +111,16 @@ ui.getRecipesSuccess(recipes)
 
 const onSeeSearchRecipe = function (event) {
   let selectedRecipe
+
   // Find the proper recipe object
   // Loop through the stored saved recipes to find a match
-  for (let i = 0; i < store.userRecipes.length; i++) {
-    if (store.searchRecipes[i].uri === event.target.name) {
-      selectedRecipe = store.userRecipes[i]
+  for (let i = 0; i < store.searchRecipes.length; i++) {
+    if (store.searchRecipes[i].recipe.uri === event.target.name) {
+
+      selectedRecipe = store.searchRecipes[i].recipe
     }
   }
+  console.log(selectedRecipe, 'selected recipe in events')
   // Pass recipe object into ui function to generate html
   ui.showOneSearchRecipe(selectedRecipe)
 }
@@ -138,7 +141,7 @@ $('#buyIngredients').on('click', onBuyIngredients)
 $('#displayContainer').on('click', 'a.seeUserRecipe', onSeeUserRecipe)
 $('#displayContainer').on('click', 'a.backToUserRecipes', onBackToUserRecipes)
 $('#displayContainer').on('click', 'a.seeSearchRecipe', onSeeSearchRecipe)
-$('#displayContainer').on('click', 'a.backToSearchRecipes', onBackToSearchRecipes)
+$('#displayContainer').on('click', 'a.backToSearchRecipes', onBackToUserRecipes)
 }
 
 
