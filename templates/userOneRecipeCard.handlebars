@@ -1,0 +1,39 @@
+<div class="card col-sm-10 offset-md-1 mt-5">
+  <div class="card-title pt-3">
+    <h2 class="text-center">{{recipe.label}}</h2>
+  </div>
+  <div class="card-body">
+    <img class="mx-auto col-12" src="{{recipe.image}}">
+    <div class="clearfix"></div>
+    <div class="float-left col-sm-6 my-4">
+      <h4 class="text-center py-4"> Ingredients </h4>
+      <ul class="list-group list-group-flush">
+        {{#each recipe.ingredients as |ingredient|}}
+        <li class="list-group-item">{{ingredient.text}}</li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="float-left col-sm-6 my-4">
+      <h4 class="text-center py-4">Recipe information</h4>
+      <h6>Number of portions: {{recipe.yield}} </h6>
+      <h5>Health</h5>
+      <ul class="list-group my-3">
+        {{#each recipe.healthLabels as |healthLabel|}}
+          <li class="list-group-item">{{healthLabel}}
+        {{/each}}
+
+      </ul>
+
+    </div>
+    <div class="clearfix"></div>
+    <div class="">
+      <button type="button" name="{{recipe.userDbId}}" class="button deleteRecipe float-right">Remove Recipe</button>
+      <a href="#" class=" backToUserRecipes float-right mx-5">Back to All Recipes</a>
+      <a href="{{recipe.url}}" target="_blank" class="float-right mx-5"> See full Recipe </a>
+    </div>
+
+  </div>
+
+  </div>
+
+</div>

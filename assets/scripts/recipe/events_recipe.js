@@ -3,7 +3,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api_recipe.js')
 const ui = require('./ui_recipe.js')
 const store = require('../store.js')
-
+const ingredients = require('./ingredientInterperter.js')
 
 const onGetRecipes = function () {
   api.getRecipes()
@@ -53,7 +53,9 @@ const onDeleteRecipe = function (event) {
     .catch(ui.getRecipeFail)
 }
 
+// Post data to amazon fresh
 const onBuyIngredients = function () {
+  // prestructured datat from amazon
   const data = {
   "ingredients": [
     {
@@ -83,10 +85,29 @@ const onBuyIngredients = function () {
 }
   api.buyIngredients(data)
     //.then(ui.buyIngredientsSuccsess)
-      .then(response => {
-        $('html').html(response.body)
-      })
+    .then(response => {
+      $('html').html(response.body)
+    })
     .catch(ui.buyIngredientsFail)
+}
+
+const onSeeUserRecipe = function (event) {
+  let selectedRecipe
+  // Find the proper recipe object
+  // Loop through the stored saved recipes to find a match
+  for (let i = 0; i < store.userRecipes.length; i++) {
+    if (store.userRecipes[i].userDbId === event.target.name) {
+      selectedRecipe = store.userRecipes[i]
+    }
+  }
+  // Pass recipe object into ui function to generate html
+  ui.showOneUserRecipe(selectedRecipe)
+}
+const onBackToUserRecipes = function () {
+const recipes = {}
+recipes.body = store.userRecipes
+console.log(recipes)
+ui.getRecipesSuccess(recipes)
 }
 
 
@@ -96,6 +117,8 @@ $('#displayContainer').on('click', 'button.saveRecipe', onSaveRecipe)
 $('#getRecipes').on('click', onGetRecipes)
 $('#displayContainer').on('click', 'button.deleteRecipe', onDeleteRecipe)
 $('#buyIngredients').on('click', onBuyIngredients)
+$('#displayContainer').on('click', 'a.seeUserRecipe', onSeeUserRecipe)
+$('#displayContainer').on('click', 'a.backToUserRecipes', onBackToUserRecipes)
 }
 
 
